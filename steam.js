@@ -2,7 +2,8 @@
 // See LICENSE.txt for details
 
 var fs = require('fs');
-var configFile = 'config.json';
+var configFile = 'config/config.json';
+var secretFile = 'config/secret.json';
 
 var config = JSON.parse(
     fs.readFileSync(configFile);
@@ -15,9 +16,9 @@ var request = require('request');
 
 module.exports = {
 	function getPlayer(httpRequest, httpResponse) {
-		var playerId = httpRequest.params.id;
+		const playerId = httpRequest.params.id;
 
-		var url = USER_SUMMARY_URL + '&steamids=' + playerId;
+		const url = USER_SUMMARY_URL + '&steamids=' + playerId;
 
 		request.get(url, function(error, steamHttpResponse, steamHttpBody){
 			if (error) {
@@ -27,5 +28,10 @@ module.exports = {
 				httpResponse.send(steamHttpBody);
 			}
 		});
+	},
+	function getGames(httpRequest, httpResponse) {
+		var playerId = httpRequest.params.id;
+
+
 	}
 };
