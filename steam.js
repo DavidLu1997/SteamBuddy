@@ -3,19 +3,16 @@
 
 const fs = require('fs');
 
-const secretFile = 'config/secret.json';
-const secret = JSON.parse(
-	fs.readFileSync(secretFile);
-);
+const apiKeyFile = 'config/key.json';
 
-const API_KEY = secret.SteamApiKey;
+const API_KEY = JSON.parse(fs.readFileSync(apiKeyFile)).SteamApiKey;
 const USER_SUMMARY_URL = 'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' + API_KEY;
 const OWNED_GAMES_URL = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=' + API_KEY;
 
 const request = require('request');
 
 module.exports = {
-	function getPlayer(httpRequest, httpResponse) {
+	getPlayer: function(httpRequest, httpResponse) {
 		const playerId = httpRequest.params.id;
 
 		const url = USER_SUMMARY_URL + '&steamids=' + playerId;
@@ -29,7 +26,7 @@ module.exports = {
 			}
 		});
 	},
-	function getGames(httpRequest, httpResponse) {
+	getGames: function(httpRequest, httpResponse) {
 		const playerId = httpRequest.params.id;
 
 		const url = USER_SUMMARY_URL + '&steamid=' + playerId + '&format=json';
