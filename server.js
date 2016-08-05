@@ -1,21 +1,24 @@
 // Copyright David Lu 2016
 // See LICENSE.txt for details
 
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
-var steam = require('steam');
+const steam = require('steam');
 
-// API Calls
+const configFile = 'config/config.json';
+const config = JSON.parse(
+    fs.readFileSync(configFile);
+);
+
 app.get('/player/:id', steam.getPlayer);
+app.get('/player/:id/games', steam.getGames);
 
-// Pages
 app.get('/', function(httpRequest, httpResponse) {
     httpResponse.setHeader('Content-Type', 'text/html');
-    httpResponse.send('index.html');
+    httpResponse.send('client/index.html');
 });
 
-// Server
-var port = 4000;
-var server = app.listen(port);
+const port = config.serverPort;
+const server = app.listen(port);
 console.log('Listening on port ' + port);
