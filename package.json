@@ -1,0 +1,25 @@
+{
+  "name": "commonsteamgames",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "request": "^2.74.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidLu1997/CommonSteamGames.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidLu1997/CommonSteamGames/issues"
+  },
+  "homepage": "https://github.com/DavidLu1997/CommonSteamGames#readme"
+}
