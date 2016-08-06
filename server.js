@@ -15,9 +15,7 @@ const config = JSON.parse(
 app.get('/player/:id', steam.getPlayer);
 app.get('/player/:id/games', steam.getGames);
 
-app.get('/', function(httpRequest, httpResponse) {
-    httpResponse.sendFile(__dirname + '/client/index.html');
-});
+app.use('/', express.static(__dirname + '/public'));
 
 const port = config.ServerPort;
 const server = app.listen(port);

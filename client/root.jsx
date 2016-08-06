@@ -6,7 +6,7 @@ import {render} from 'react-dom';
 
 class Root extends React.Component {
 	render() {
-		return <p>Derp</p>;
+		return <p>Derp herp</p>;
 	}
 }
 
