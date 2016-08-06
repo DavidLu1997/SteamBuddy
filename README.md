@@ -15,3 +15,4 @@ Under extensive development
 - `make run` builds in production
 - `make run-dev` builds in development mode
 - `make clean` sweeps garbage
+- `make check-style` checks style using ESLint

@@ -1,14 +1,17 @@
-run: .npminstall
+run: install
 	./node_modules/.bin/webpack
 
 	npm start
 
-run-dev: .npminstall
+run-dev: install
 	./node_modules/.bin/webpack -d
 
 	npm start
 
-.npminstall: package.json
+check-style: install
+	eslint client/**
+
+install: package.json
 	npm install
 
 clean:
