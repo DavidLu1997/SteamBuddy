@@ -5,8 +5,13 @@ run: .npminstall
 
 run-dev: .npminstall
 	./node_modules/.bin/webpack -d
-	
+
 	npm start
 
 .npminstall: package.json
 	npm install
+
+clean:
+	rm -rf public/bundle.*
+	rm -rf node_modules
+	rm -f .npminstall
