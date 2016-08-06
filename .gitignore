@@ -48,4 +48,10 @@ Temporary Items
 
 # Directories
 node_modules
+
+# Files
 config/key.json
+bundle.js
+bundle.js.map
+*.log
+
